@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://www.smslive247.com/api/webservice/obsolete/smssiteadmin.asmx?disco" filename="smssiteadmin.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://www.smslive247.com/api/webservice/obsolete/smssiteadmin.asmx?xsd=xsd0" filename="smssiteadmin.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://www.smslive247.com/api/webservice/obsolete/smssiteadmin.asmx?wsdl" filename="SMSSiteAdmin.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://www.smslive247.com/api/webservice/obsolete/smssiteadmin.asmx?wsdl=wsdl0" filename="smssiteadmin0.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

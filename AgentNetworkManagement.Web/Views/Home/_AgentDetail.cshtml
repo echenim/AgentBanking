@@ -1,0 +1,53 @@
+﻿@model AgentNetworkManager.Domain.ViewModels.AgentDetail
+<div class="hundredPercent goMobileHundredPercent floatLeft noPrint">
+    <div class="rowBody rowPadding borderAll Colour-White">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                <span>
+                    @(Model.Gender.Contains("Fe") ? Html.Raw("Ms.") : Html.Raw("Mr."))
+                    @Html.DisplayFor(model => model.Name)
+                </span>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Position)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Position)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Position)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Agency)
+                @Html.DisplayFor(model => model.RegionName))
+                @Html.DisplayFor(model => model.StateName)
+                @Html.DisplayFor(model => model.Area)
+                @Html.DisplayFor(model => model.Zone)
+                @Html.DisplayFor(model => model.Clusta)
+            </dd>
+        </dl>
+    </div>
+</div>
+

@@ -1,0 +1,43 @@
+﻿@model AgentNetworkManager.Domain.PermissionAndAuthorization.Models.LoginViewModel
+
+@{
+    Layout = "~/Views/Shared/_ILayout.cshtml";
+}
+
+<!-- Body container -->
+<div class="centerAlignOverlap">
+
+    <div id="overlap" class="clearFix dropShadow Colour-White">
+
+        <!-- Close Button container
+        <div class="closeOverlap"><img src="_images/_button/close.png" alt="Close" class="close" title="Close" /></div> -->
+        <!-- This is where the content starts -->
+        <div class="spanFull text-Gray">
+            @*<img src="~/Avarter/logo/micro_leveragex.png" width="60" />v.1.0 BETA*@
+            @*<img src="~/Avarter/logo/logo.jpg" width="30" />v.1.0 BETA*@
+        </div>
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-Red italic" })
+            <div class="spanFull">
+                @Html.TextBoxFor(m => m.Email, new { @class = "startUp" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-Red italic" })
+            </div>
+            <div class="spanFull">
+                @Html.PasswordFor(m => m.Password, new { @class = "startUp" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-Red italic " })
+            </div>
+            <div class="spanFull">
+                <button id="signin_process" class="Colour-Red" type="submit">ENTER</button><label class="text-Red italic errorsignin_process hidden"></label>
+               @*@Html.ActionLink("Register as a new user", "Register")*@
+            </div>
+
+        }
+        <!-- This is where the content ends -->
+
+    </div>
+    <!-- End of Button container -->
+
+</div>
+<!-- End of body container -->

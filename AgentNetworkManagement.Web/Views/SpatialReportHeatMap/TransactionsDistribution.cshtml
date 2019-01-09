@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Fusion Tables heatmaps</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 10, lng: -140},
+          zoom: 3
+        });
+
+        var layer = new google.maps.FusionTablesLayer({
+          query: {
+            select: 'location',
+            from: '1xWyeuAhIFK_aED1ikkQEGmR8mINSCJO9Vq-BPQ'
+          },
+          heatmap: {
+            enabled: true
+          }
+        });
+
+        layer.setMap(map);
+      }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATChyrTV1H6XARHE0wDMAheYvsFpQ-LIQ&callback=initMap">
+    </script>
+</body>
+</html>

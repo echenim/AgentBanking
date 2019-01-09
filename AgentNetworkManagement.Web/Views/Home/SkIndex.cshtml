@@ -1,0 +1,122 @@
+﻿@model PagedList.IPagedList<AgentNetworkManager.Domain.DbViews.LastTransaction>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    var sn = 0;
+
+    
+    Layout = "~/Views/Shared/_BootstrapLayout.cshtml";
+}
+
+<div class="rowBody rowPadding borderAll Colour-White">
+    <div class="text-Color"><h3>AGENT TRANSACTION</h3></div>
+    <div>This allows you to view all agent transaction(s) . </div>
+</div>
+
+
+   
+
+<div class="rowBody rowPadding borderAll Colour-White">
+            <span><h3 class="strong">@Model.Count()</h3></span><b>result(s)</b>
+            <div class="divider"></div>
+
+
+            @using (Html.BeginForm())
+            {
+                <span class="noMobile">
+                    <b class="strong floatLeft">Search: </b>
+                    @Html.TextBox("searchString", null, null, new { @class = "normalHtmlTextField", placeholder = "Type Search Word..." })
+                </span>
+                <span><button class="dropShadow text-White goSearch noMobile" type="submit">GO</button></span>
+            }
+</div>
+
+<div class="rowBody rowPadding borderAll Colour-White">
+    <div class="table-responsive">
+
+        <table class="table table-condensed table-striped table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayName("S/N")
+                </th>
+                <th>
+                    @Html.ActionLink("Name Of Agent", "Index", new { sortOrder = ViewBag.NameSortParm })
+                </th>
+                <th>
+                    @Html.DisplayName("Description")
+                </th>
+                <th>
+                    @Html.DisplayName("Kind Of Transaction")
+                </th>
+                <th>
+                    @Html.DisplayName("Amount")
+                </th>
+                <th>
+                    @Html.DisplayName("Charge")
+                </th>
+                <th>
+                    @Html.DisplayName("Balance")
+                </th>
+
+                <th>
+                    @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+
+
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                sn = sn + 1;
+                <tr>
+                    <td>
+                        @sn
+                    </td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <img src="~/Avarter/personz.png" width="35" />
+                            </div>
+                            <div class="col-sm-10">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeOfTransaction)
+                    </td>
+                    <td>
+                        <span>&#8358;@Html.DisplayFor(modelItem => item.DebitedAmount)</span>
+                    </td>
+                    <td>
+                        <span>&#8358;@Html.DisplayFor(modelItem => item.TransFee)</span>
+                    </td>
+                    <td>
+                        <span>&#8358;@Html.DisplayFor(modelItem => item.CurrentBalance)</span>
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedOn)
+                    </td>
+                    <td>
+                        @Html.ActionLink("History", "Histories", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <br />
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
+    </div>
+
+</div>
+

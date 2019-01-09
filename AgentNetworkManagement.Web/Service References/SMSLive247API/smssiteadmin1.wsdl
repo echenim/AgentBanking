@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://smslive247.com/bulksms/service" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://smslive247.com/bulksms/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://smslive247.com/bulksms/service/Imports">
+      <xsd:import schemaLocation="http://www.smslive247.com/api/webservice/obsolete/smssiteadmin.asmx?xsd=xsd0" namespace="http://smslive247.com/bulksms/service" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISMSSiteAdmin_NewSiteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewSiteUser" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_NewSiteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewSiteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_UpdateSiteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSiteUser" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_UpdateSiteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSiteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_DeleteSiteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSiteUser" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_DeleteSiteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSiteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_GetAllSiteUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSiteUsers" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_GetAllSiteUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSiteUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_FlashSiteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:FlashSiteUser" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_FlashSiteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FlashSiteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_ChangePwd_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwd" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_ChangePwd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_Recharge_InputMessage">
+    <wsdl:part name="parameters" element="tns:Recharge" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_Recharge_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechargeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_UpdateAccountInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_UpdateAccountInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_GetAccountInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_GetAccountInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_SendSMS_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_SendSMS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_GetMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessages" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_GetMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_DeleteMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMessage" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_DeleteMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_InsertContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertContact" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_InsertContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_UpdateContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContact" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_UpdateContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_DeleteContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContact" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_DeleteContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_GetContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContacts" />
+  </wsdl:message>
+  <wsdl:message name="ISMSSiteAdmin_GetContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContactsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISMSSiteAdmin">
+    <wsdl:operation name="NewSiteUser">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/NewSiteUser" message="tns:ISMSSiteAdmin_NewSiteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/NewSiteUserResponse" message="tns:ISMSSiteAdmin_NewSiteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSiteUser">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/UpdateSiteUser" message="tns:ISMSSiteAdmin_UpdateSiteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/UpdateSiteUserResponse" message="tns:ISMSSiteAdmin_UpdateSiteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSiteUser">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/DeleteSiteUser" message="tns:ISMSSiteAdmin_DeleteSiteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/DeleteSiteUserResponse" message="tns:ISMSSiteAdmin_DeleteSiteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSiteUsers">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/GetAllSiteUsers" message="tns:ISMSSiteAdmin_GetAllSiteUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/GetAllSiteUsersResponse" message="tns:ISMSSiteAdmin_GetAllSiteUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FlashSiteUser">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/FlashSiteUser" message="tns:ISMSSiteAdmin_FlashSiteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/FlashSiteUserResponse" message="tns:ISMSSiteAdmin_FlashSiteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/Login" message="tns:ISMSSiteAdmin_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/LoginResponse" message="tns:ISMSSiteAdmin_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwd">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/ChangePwd" message="tns:ISMSSiteAdmin_ChangePwd_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/ChangePwdResponse" message="tns:ISMSSiteAdmin_ChangePwd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Recharge">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/Recharge" message="tns:ISMSSiteAdmin_Recharge_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/RechargeResponse" message="tns:ISMSSiteAdmin_Recharge_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountInfo">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/UpdateAccountInfo" message="tns:ISMSSiteAdmin_UpdateAccountInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/UpdateAccountInfoResponse" message="tns:ISMSSiteAdmin_UpdateAccountInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfo">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/GetAccountInfo" message="tns:ISMSSiteAdmin_GetAccountInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/GetAccountInfoResponse" message="tns:ISMSSiteAdmin_GetAccountInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/SendSMS" message="tns:ISMSSiteAdmin_SendSMS_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/SendSMSResponse" message="tns:ISMSSiteAdmin_SendSMS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/GetMessages" message="tns:ISMSSiteAdmin_GetMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/GetMessagesResponse" message="tns:ISMSSiteAdmin_GetMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessage">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/DeleteMessage" message="tns:ISMSSiteAdmin_DeleteMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/DeleteMessageResponse" message="tns:ISMSSiteAdmin_DeleteMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertContact">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/InsertContact" message="tns:ISMSSiteAdmin_InsertContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/InsertContactResponse" message="tns:ISMSSiteAdmin_InsertContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContact">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/UpdateContact" message="tns:ISMSSiteAdmin_UpdateContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/UpdateContactResponse" message="tns:ISMSSiteAdmin_UpdateContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/DeleteContact" message="tns:ISMSSiteAdmin_DeleteContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/DeleteContactResponse" message="tns:ISMSSiteAdmin_DeleteContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContacts">
+      <wsdl:input wsaw:Action="http://smslive247.com/bulksms/service/GetContacts" message="tns:ISMSSiteAdmin_GetContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://smslive247.com/bulksms/service/ISMSSiteAdmin/GetContactsResponse" message="tns:ISMSSiteAdmin_GetContacts_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<AgentNetworkManager.Domain.DbViews.FundWallet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="hundredPercent goMobileHundredPercent floatLeft noPrint">
+    <div class="rowBody rowPadding borderAll Colour-White">
+        <div class="text-Color"><h3>MANGER LIQUIDITIES</h3></div>
+        <div>This allows you to thoroughly manage & fund all agent(s) wallets request(s) . </div>
+    </div>
+</div>
+<div class="hundredPercent goMobileHundredPercent floatLeft noPrint">
+    @using (Html.BeginForm())
+    {
+        <div class="rowBody rowPadding borderAll filterBar Colour-White text-Gray">
+            <span><h3 class="strong">@Model.Count()</h3></span><b>result(s)</b>
+            <div class="divider"></div>
+
+            <span class="noMobile">
+                <b class="strong floatLeft">Search: </b>
+                @Html.TextBox("searchString", null, null, new { @class = "normalHtmlTextField", placeholder = "Type Search Word..." })
+            </span>
+            <span><button class="dropShadow text-White goSearch noMobile" type="submit">GO</button></span>
+
+        </div>
+    }
+
+</div>
+
+<div class="hundredPercent goMobileHundredPercent floatLeft">
+    <ul class="rowBody strips borderAll Colour-White underLine">
+        <li class="clearFix noPrint">
+          @if (User.IsInRole("CanFundAgent"))
+          {
+            @Html.ActionLink("Fund Agent", "Create")
+          }
+        </li>
+        <li class="clearFix text-Black">
+            <div class="table-responsive">
+                <table class="table  table-striped table-condensed">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Amount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Manager)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedOn)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.Raw("N")@Html.DisplayFor(modelItem => item.Amount)
+                            </td>
+                           
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Manager)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedOn)
+                            </td>
+                            <td>
+                               
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+            </div>
+        </li>
+
+    </ul>
+    @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+                       new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@
+</div>
+

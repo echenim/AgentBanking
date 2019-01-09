@@ -1,0 +1,3 @@
+﻿namespace AgentNetworkManagement.Business.Contracts
+{
+}

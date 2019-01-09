@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://smslive247.com/bulksms/service" elementFormDefault="qualified" targetNamespace="http://smslive247.com/bulksms/service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="NewSiteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="User" type="tns:SMSSiteUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SMSSiteUserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="owner_tx_id" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ws_tx_id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Username" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Password" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FirstName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LastName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Street" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="City" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="State" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Country" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Email" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Phone" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CBalance" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UserSettings" type="tns:UserInfo_settings" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Active" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UserInfo_settings">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SenderID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Signature" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorEmail" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UseSignature" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeZone" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NewSiteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="NewSiteUserResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ResponseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExtraMessage" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalSuccess" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalFailure" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalCharged" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CurrentBalance" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateSiteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="User" type="tns:SMSSiteUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSiteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="UpdateSiteUserResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSiteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Username" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSiteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="DeleteSiteUserResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSiteUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSiteUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetAllSiteUsersResult" type="tns:ArrayOfSMSSiteUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfSMSSiteUserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SMSSiteUserInfo" type="tns:SMSSiteUserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FlashSiteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="RecieverName" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="SMS_Count" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FlashSiteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="FlashSiteUserResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_id" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Password" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="LoginResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePwd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="OldPassword" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="NewPassword" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePwdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="ChangePwdResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Recharge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="str16DigitCode" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RechargeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="RechargeResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="NewInfo" type="tns:SMSSiteInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SMSSiteInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ws_tx_id" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OwnerEmail" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Username" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Password" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Email" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Prefix" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Suffix" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SentUrl" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorUrl" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SentEmail" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorEmail" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Callback" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CallbackActive" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CallbackExpiry" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CBalance" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Active" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalUsers" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Remarks" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Tag1" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Tag2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Tag3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateAccountInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="UpdateAccountInfoResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="GetAccountInfoResult" type="tns:SMSSiteInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendSMS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="NewSMS" type="tns:MessageInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="MessageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MessageType" type="tns:SMSTypeEnum" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MessageFolder" type="tns:MessageFolder" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CallBack" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Destination" type="tns:ArrayOfString" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DeliveryEmail" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SMSTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TEXT" />
+      <xs:enumeration value="FLASH" />
+      <xs:enumeration value="OLOGO" />
+      <xs:enumeration value="RTONE" />
+      <xs:enumeration value="VCARD" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MessageFolder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SENT_FOLDER" />
+      <xs:enumeration value="SAVED_FOLDER" />
+      <xs:enumeration value="BULK_SENT_FOLDER" />
+      <xs:enumeration value="BULK_SAVED_FOLDER" />
+      <xs:enumeration value="WEBSMS_SENT_FOLDER" />
+      <xs:enumeration value="CUSTOM_SENT_FOLDER" />
+      <xs:enumeration value="BULK_ISSENDING_FOLDER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SendSMSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="SendSMSResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="from_date" type="xs:dateTime" />
+        <xs:element minOccurs="1" maxOccurs="1" name="to_date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetMessagesResult" type="tns:ArrayOfSentMessageInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfSentMessageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SentMessageInfo" type="tns:SentMessageInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SentMessageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="SendEndDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SendStartDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalSms" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalSent" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TotalFailed" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ShortMessage" type="tns:MessageInfo" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SendStatus" type="tns:SendStatusEnum" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SendStatusStr" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OwnerEmail" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ws_tx_id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SendStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SENT" />
+      <xs:enumeration value="SENDING" />
+      <xs:enumeration value="PAUSED" />
+      <xs:enumeration value="STOPPED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DeleteMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="MessageID" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="DeleteMessageResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="myContact" type="tns:ContactInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ContactInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Alias" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Email" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Mobile" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Groups" type="tns:ArrayOfString" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LastName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FirstName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="InsertContactResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="myContact" type="tns:ContactInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="UpdateContactResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="MobileNo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteContactResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="DeleteContactResult" type="tns:ResponseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="site_token" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetContactsResult" type="tns:ArrayOfContactInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfContactInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContactInfo" type="tns:ContactInfo" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

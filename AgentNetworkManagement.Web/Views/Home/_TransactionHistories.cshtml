@@ -1,0 +1,70 @@
+﻿@model IEnumerable<AgentNetworkManager.Domain.DbViews.TransactionHistory>
+@{
+    var sn = 0;
+}
+
+<div class="hundredPercent goMobileHundredPercent floatLeft">
+    <ul class="rowBody strips borderAll Colour-White underLine">
+        <li class="clearFix noPrint">
+            <div class="text-Color">
+                <h3>TRANSACTION HISTORY</h3>
+            </div>
+        </li>
+        <li class="clearFix text-Black">
+            <div class="table-responsive">
+                <table class="table  table-striped table-condensed">
+                    <tr>
+                        <th>
+                            @Html.DisplayName("S/N")
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descriptions)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Amount)
+                        </th>
+                        <th>
+                            @Html.DisplayName("Latitude/Longitude")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Date Of Transaction")
+                        </th>
+
+
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        sn = @sn + 1;
+                        <tr>
+                            <td>
+                                @sn
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descriptions)
+                            </td>
+                            <td>
+                                <span>&#8358;@Html.DisplayFor(modelItem => item.Amount)</span>
+                            </td>
+                            <td>
+                                <span>@Html.Raw("Lat : ")@Html.DisplayFor(modelItem => item.Latitude)</span><br />
+                                <span>@Html.Raw("Lng : ")@Html.DisplayFor(modelItem => item.Longitude)</span>
+
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedOn)
+                            </td>
+
+                        </tr>
+                    }
+
+                </table>
+
+            </div>
+        </li>
+
+    </ul>
+</div>

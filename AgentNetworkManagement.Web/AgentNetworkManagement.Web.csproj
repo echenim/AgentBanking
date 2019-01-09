@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9F5D7BF-B7CA-4C1B-B27A-78A0A55F7C3C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AgentNetworkManagement.Web</RootNamespace>
+    <AssemblyName>AgentNetworkManagement.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Humanizer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Humanizer.Core.2.1.0\lib\netstandard1.0\Humanizer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FundWalletController.cs" />
+    <Compile Include="Controllers\GroupsAdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrganogramServiceController.cs" />
+    <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Controllers\ServiceForAgentsController.cs" />
+    <Compile Include="Controllers\SignInController.cs" />
+    <Compile Include="Controllers\SpatialReportHeatMapController.cs" />
+    <Compile Include="Controllers\StructureController.cs" />
+    <Compile Include="Controllers\TransactionDesciptionsController.cs" />
+    <Compile Include="Controllers\UserManagementController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SMSLive247API\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="Web References\com.smslive247.www1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Avarter\background\99.png" />
+    <Content Include="Avarter\background\header-bg.png" />
+    <Content Include="Avarter\background\mobile-apps.jpg" />
+    <Content Include="Avarter\background\s.jpg" />
+    <Content Include="Avarter\background\wood.jpg" />
+    <Content Include="Avarter\background\xxxx.jpg" />
+    <Content Include="Avarter\background\xxxxxxx.jpg" />
+    <Content Include="Avarter\ic_control\left.png" />
+    <Content Include="Avarter\ic_control\list.png" />
+    <Content Include="Avarter\ic_control\logo.png" />
+    <Content Include="Avarter\ic_control\right.png" />
+    <Content Include="Avarter\ic_map\conv30.png" />
+    <Content Include="Avarter\ic_map\conv40.png" />
+    <Content Include="Avarter\ic_map\conv50.png" />
+    <Content Include="Avarter\ic_map\heart30.png" />
+    <Content Include="Avarter\ic_map\heart40.png" />
+    <Content Include="Avarter\ic_map\heart50.png" />
+    <Content Include="Avarter\ic_map\m1.png" />
+    <Content Include="Avarter\ic_map\m2.png" />
+    <Content Include="Avarter\ic_map\m3.png" />
+    <Content Include="Avarter\ic_map\m4.png" />
+    <Content Include="Avarter\ic_map\m5.png" />
+    <Content Include="Avarter\ic_map\people35.png" />
+    <Content Include="Avarter\ic_map\people45.png" />
+    <Content Include="Avarter\ic_map\people55.png" />
+    <Content Include="Avarter\ic_map\pin.png" />
+    <Content Include="Avarter\image\checklist4.png" />
+    <Content Include="Avarter\image\closed.png" />
+    <Content Include="Avarter\image\cloud179.png" />
+    <Content Include="Avarter\image\csv1.png" />
+    <Content Include="Avarter\image\delete97.png" />
+    <Content Include="Avarter\image\gear39.png" />
+    <Content Include="Avarter\image\globe41.png" />
+    <Content Include="Avarter\image\graph.png" />
+    <Content Include="Avarter\image\group44.png" />
+    <Content Include="Avarter\image\home.png" />
+    <Content Include="Avarter\image\house187.png" />
+    <Content Include="Avarter\image\list.png" />
+    <Content Include="Avarter\image\logo.png" />
+    <Content Include="Avarter\image\male80.png" />
+    <Content Include="Avarter\image\minussign2.png" />
+    <Content Include="Avarter\image\move12.png" />
+    <Content Include="Avarter\image\move13.png" />
+    <Content Include="Avarter\image\move18.png" />
+    <Content Include="Avarter\image\move19.png" />
+    <Content Include="Avarter\image\noPhoto.png" />
+    <Content Include="Avarter\image\open161.png" />
+    <Content Include="Avarter\image\pencil43.png" />
+    <Content Include="Avarter\image\people.png" />
+    <Content Include="Avarter\image\progress.png" />
+    <Content Include="Avarter\image\question.png" />
+    <Content Include="Avarter\image\question55.png" />
+    <Content Include="Avarter\image\settings.png" />
+    <Content Include="Avarter\image\settings38.png" />
+    <Content Include="Avarter\image\sign4.png" />
+    <Content Include="Avarter\image\sms.png" />
+    <Content Include="Avarter\image\sms1.png" />
+    <Content Include="Avarter\image\tachometer1.png" />
+    <Content Include="Avarter\image\test.png" />
+    <Content Include="Avarter\image\worldgrid.png" />
+    <Content Include="Avarter\logo.png" />
+    <Content Include="Avarter\logo\bg_logo.png" />
+    <Content Include="Avarter\logo\logon.png" />
+    <Content Include="Avarter\logo\micro_leveragex.png" />
+    <Content Include="Avarter\logo\miliz.png" />
+    <Content Include="Avarter\logo\milizo.png" />
+    <Content Include="Avarter\logo\paycabins.png" />
+    <Content Include="Avarter\logo\paycabinxx.png" />
+    <Content Include="Avarter\logo\swiftpay.png" />
+    <Content Include="Avarter\operational-analytics-icon.png" />
+    <Content Include="Avarter\person.png" />
+    <Content Include="Avarter\personz.png" />
+    <Content Include="Avarter\_images\banknotes-xl.png" />
+    <Content Include="Avarter\_images\check.png" />
+    <Content Include="Avarter\_images\checklist4.png" />
+    <Content Include="Avarter\_images\checkWT.png" />
+    <Content Include="Avarter\_images\closed.png" />
+    <Content Include="Avarter\_images\cloud179.png" />
+    <Content Include="Avarter\_images\configuration.png" />
+    <Content Include="Avarter\_images\configuration2.png" />
+    <Content Include="Avarter\_images\csv1.png" />
+    <Content Include="Avarter\_images\delete97.png" />
+    <Content Include="Avarter\_images\down.png" />
+    <Content Include="Avarter\_images\fund.png" />
+    <Content Include="Avarter\_images\gear39.png" />
+    <Content Include="Avarter\_images\globe-xl.png" />
+    <Content Include="Avarter\_images\globe41.png" />
+    <Content Include="Avarter\_images\graph.png" />
+    <Content Include="Avarter\_images\group44.png" />
+    <Content Include="Avarter\_images\home.png" />
+    <Content Include="Avarter\_images\house187.png" />
+    <Content Include="Avarter\_images\icon-arrowup.png" />
+    <Content Include="Avarter\_images\icon_logo.png" />
+    <Content Include="Avarter\_images\Increasing-Chart-1_48px.png" />
+    <Content Include="Avarter\_images\list.png" />
+    <Content Include="Avarter\_images\logo.png" />
+    <Content Include="Avarter\_images\male80.png" />
+    <Content Include="Avarter\_images\minussign2.png" />
+    <Content Include="Avarter\_images\move12.png" />
+    <Content Include="Avarter\_images\move13.png" />
+    <Content Include="Avarter\_images\move18.png" />
+    <Content Include="Avarter\_images\move19.png" />
+    <Content Include="Avarter\_images\noPhoto.png" />
+    <Content Include="Avarter\_images\noPhoton.png" />
+    <Content Include="Avarter\_images\pencil43.png" />
+    <Content Include="Avarter\_images\people.png" />
+    <Content Include="Avarter\_images\progress.png" />
+    <Content Include="Avarter\_images\question.png" />
+    <Content Include="Avarter\_images\question55.png" />
+    <Content Include="Avarter\_images\report-2-xl.png" />
+    <Content Include="Avarter\_images\reports.png" />
+    <Content Include="Avarter\_images\reportss.png" />
+    <Content Include="Avarter\_images\Sale-Sign_48px.png" />
+    <Content Include="Avarter\_images\settings-10-xl.png" />
+    <Content Include="Avarter\_images\settings.png" />
+    <Content Include="Avarter\_images\settings38.png" />
+    <Content Include="Avarter\_images\sign4.png" />
+    <Content Include="Avarter\_images\sms1.png" />
+    <Content Include="Avarter\_images\spartial.png" />
+    <Content Include="Avarter\_images\tachometer1.png" />
+    <Content Include="Avarter\_images\test.png" />
+    <Content Include="Avarter\_images\transaction.png" />
+    <Content Include="Avarter\_images\transactionreport.png" />
+    <Content Include="Avarter\_images\uncheck.png" />
+    <Content Include="Avarter\_images\uncheckWT.png" />
+    <Content Include="Avarter\_images\wallet-3-xl.png" />
+    <Content Include="Avarter\_images\wallet.png" />
+    <Content Include="Avarter\_images\wallets.png" />
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\appcss\content.css" />
+    <Content Include="Content\appcss\menue.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cssx\layout.css" />
+    <Content Include="Content\cssx\print.css" />
+    <Content Include="Content\cssx\reporter.css" />
+    <Content Include="Content\cssx\reset.css" />
+    <Content Include="Content\cssx\style-login-registration.css" />
+    <Content Include="Content\cssx\style.css" />
+    <Content Include="Content\cssx\tablestyle.css" />
+    <Content Include="Content\cssx\Tstyle.css" />
+    <Content Include="Content\css\layout.css" />
+    <Content Include="Content\css\print.css" />
+    <Content Include="Content\css\reporter.css" />
+    <Content Include="Content\css\reset.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\style_reporter.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\site.less" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Zoom.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-2.2.2.min.map" />
+    <Content Include="Scripts\jquery-2.2.2.js" />
+    <Content Include="Scripts\jquery-2.2.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jss\1_jquery-1.js" />
+    <Content Include="Scripts\jss\canvas-to-blob.js" />
+    <Content Include="Scripts\jss\jquery-ui-1.js" />
+    <Content Include="Scripts\jss\jquery.js" />
+    <Content Include="Scripts\jss\jquery_002.js" />
+    <Content Include="Scripts\jss\jquery_003.js" />
+    <Content Include="Scripts\jss\jquery_004.js" />
+    <Content Include="Scripts\jss\jquery_005.js" />
+    <Content Include="Scripts\jss\jquery_006.js" />
+    <Content Include="Scripts\jss\jquery_007.js" />
+    <Content Include="Scripts\jss\jquery_008.js" />
+    <Content Include="Scripts\jss\jquery_009.js" />
+    <Content Include="Scripts\jss\load-image.js" />
+    <Content Include="Scripts\js\bootstrap.js" />
+    <Content Include="Scripts\js\canvas-to-blob.js" />
+    <Content Include="Scripts\js\load-image.js" />
+    <Content Include="Scripts\js\valuechain.js" />
+    <Content Include="Scripts\mapjs\markerclusterer.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.ChangePwdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.ContactInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.DeleteContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.DeleteMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.DeleteSiteUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.FlashSiteUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.GetAccountInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.GetAllSiteUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.GetContactsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.GetMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.InsertContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.NewSiteUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.RechargeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.ResponseInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.SendSMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.SentMessageInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.SMSSiteInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.SMSSiteUserInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.UpdateAccountInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.UpdateContactResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SMSLive247API\AgentNetworkManagement.Web.SMSLive247API.UpdateSiteUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Service References\SMSLive247API\smssiteadmin.disco" />
+    <None Include="Service References\SMSLive247API\configuration91.svcinfo" />
+    <None Include="Service References\SMSLive247API\configuration.svcinfo" />
+    <None Include="Service References\SMSLive247API\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\com.smslive247.www1\ContactInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\com.smslive247.www1\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\com.smslive247.www1\ResponseInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\com.smslive247.www1\SentMessageInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Service References\SMSLive247API\SMSSiteAdmin.wsdl" />
+    <None Include="Service References\SMSLive247API\smssiteadmin.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SMSLive247API\smssiteadmin1.wsdl" />
+    <None Include="Web References\com.smslive247.www1\smssiteadmin.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_ILayout.cshtml" />
+    <Content Include="Views\Shared\_BootstrapLayout.cshtml" />
+    <Content Include="Views\Structure\Area.cshtml" />
+    <Content Include="Views\Structure\Cluster.cshtml" />
+    <Content Include="Views\Structure\Delete.cshtml" />
+    <Content Include="Views\Structure\Index.cshtml" />
+    <Content Include="Views\Structure\Platform.cshtml" />
+    <Content Include="Views\Structure\Region.cshtml" />
+    <Content Include="Views\Structure\State.cshtml" />
+    <Content Include="Views\Structure\Zone.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\UserManagement\Area.cshtml" />
+    <Content Include="Views\UserManagement\AssignPlatformManager.cshtml" />
+    <Content Include="Views\UserManagement\AssignRole.cshtml" />
+    <Content Include="Views\UserManagement\AssignToNetwork.cshtml" />
+    <Content Include="Views\UserManagement\Cluster.cshtml" />
+    <Content Include="Views\UserManagement\Create.cshtml" />
+    <Content Include="Views\UserManagement\Delete.cshtml" />
+    <Content Include="Views\UserManagement\Details.cshtml" />
+    <Content Include="Views\UserManagement\Edit.cshtml" />
+    <Content Include="Views\UserManagement\Index.cshtml" />
+    <Content Include="Views\UserManagement\Platform.cshtml" />
+    <Content Include="Views\UserManagement\Region.cshtml" />
+    <Content Include="Views\UserManagement\State.cshtml" />
+    <Content Include="Views\UserManagement\Zone.cshtml" />
+    <Content Include="Views\FundWallet\Create.cshtml" />
+    <Content Include="Views\FundWallet\Index.cshtml" />
+    <Content Include="Views\Home\Histories.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_AgentDetail.cshtml" />
+    <Content Include="Views\Home\_TransactionHistories.cshtml" />
+    <Content Include="Views\SpatialReportHeatMap\AgentsDistribution.cshtml" />
+    <Content Include="Views\SpatialReportHeatMap\TransactionsDistribution.cshtml" />
+    <Content Include="Views\SpatialReportHeatMap\ActivityCluster.cshtml" />
+    <Content Include="Views\Home\SkIndex.cshtml" />
+    <None Include="Web References\com.smslive247.www1\SMSSiteAdmin.wsdl" />
+    <None Include="Web References\com.smslive247.www1\smssiteadmin.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\com.smslive247.www1\smssiteadmin0.wsdl" />
+    <Content Include="Web References\com.smslive247.www1\SMSSiteInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\com.smslive247.www1\SMSSiteUserInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\OrganogramService\" />
+    <Folder Include="Views\SpatialReportHeat\" />
+    <Folder Include="Views\TransactionDesciptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AgentNetworkManagement.Business\AgentNetworkManagement.Business.csproj">
+      <Project>{bcb50552-0ca7-4995-8ebf-5aa58361ae6b}</Project>
+      <Name>AgentNetworkManagement.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgentNetworkManager.Domain\AgentNetworkManager.Domain.csproj">
+      <Project>{4bdc27ed-bdd8-4b51-ac74-ac30fd40b8c2}</Project>
+      <Name>AgentNetworkManager.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Echenim.Nine\Echenim.Nine.csproj">
+      <Project>{a70504cc-415d-4e46-a5d8-63962b58dcc8}</Project>
+      <Name>Echenim.Nine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://www.smslive247.com/api/webservice/obsolete/smssiteadmin.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.smslive247.www1\</RelPath>
+      <UpdateFromURL>http://www.smslive247.com/api/webservice/obsolete/smssiteadmin.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AgentNetworkManagement_Web_com_smslive247_www1_SMSSiteAdmin</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SMSLive247API\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5200</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/platformmanagement</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:5200/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

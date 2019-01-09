@@ -1,0 +1,129 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background:#EEEFF3;
+
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+
+
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.imgBtn{
+	width:20px;
+	height:20px;
+	background-image:linear-gradient(#1DA237, #1DA237);
+}
+
+.imgBtn:hover{
+	background-image:linear-gradient(#1DA237, #1DA237);
+}
+
+.dropShadow{
+	box-shadow:none;	
+	-moz-box-shadow:none;
+	-khtml-box-shadow:none;
+	-webkit-box-shadow:none;   
+}
+
+/*
+    content styling
+*/
+
+#contentWrapper {
+	/*width:100%;*/
+    height:100%;
+    overflow: auto;
+	
+	background:#EEEFF3;
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+	padding:0 0 0 0px;
+	overflow-y:auto;
+}
+.contentBlock {
+    height: 100%;
+    padding: 15px 0 20px 15px;
+}
+.div[class*="Percent goMobileHundredPercent"] {
+		width:100% !important;
+	}
+
+.contentBody {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: thin #CCC solid;
+}
+
+.hundredPercent {
+	padding:0 20px 0 0;
+	width:100%;
+	height:auto;
+    overflow: auto;
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+}
+
+ .rowBody{
+	position:relative;
+	width:100%;
+	height:auto;
+	margin:0 0 20px 0;
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+/*	padding-bottom: 500em;
+	padding: 20px;
+	margin-bottom: -500em;*/
+}
+
+.rowPadding{
+	padding:20px 0 20px 20px !important;
+}
+
+.borderAll{
+	border: 1px solid #CCCCCC;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+.Colour-White{background-color:#FFFFFF !important;}
+
+/*
+    menu styling
+*/
+.menuBar {
+	font-size:0.875em;
+	/*position:fixed;*/
+	/*width:200px;*/
+    padding-top:20px;
+	height:100%;
+    overflow: auto;
+	border-right:thin #CCC solid;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	/*z-index:40;*/
+}

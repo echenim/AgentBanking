@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4BDC27ED-BDD8-4B51-AC74-AC30FD40B8C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AgentNetworkManager.Domain</RootNamespace>
+    <AssemblyName>AgentNetworkManager.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Humanizer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Humanizer.Core.2.1.0\lib\netstandard1.0\Humanizer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="DbViews\Member.cs" />
+    <Compile Include="DbViews\MemberWithAgentRole.cs" />
+    <Compile Include="DbViews\Organogramm.cs" />
+    <Compile Include="DbViews\WalletStatus.cs" />
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\AssignUsersToTheirAgentNetwork.cs" />
+    <Compile Include="Models\Banks.cs" />
+    <Compile Include="Models\BillsPayment.cs" />
+    <Compile Include="Models\Cluster.cs" />
+    <Compile Include="Models\Collections.cs" />
+    <Compile Include="Models\CollectionTransaction.cs" />
+    <Compile Include="Models\CustomerBankAccountOpening.cs" />
+    <Compile Include="Models\CustomerBankAccountOpningAddress.cs" />
+    <Compile Include="Models\CustomerBankCardInformation.cs" />
+    <Compile Include="Models\CustomerNextOfKinInfo.cs" />
+    <Compile Include="Models\Fee.cs" />
+    <Compile Include="Models\Fund.cs" />
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="Models\Instrumentation.cs" />
+    <Compile Include="Models\National.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\PersonAndFunctionalArea.cs" />
+    <Compile Include="Models\PlatformManagingRule.cs" />
+    <Compile Include="Models\Region.cs" />
+    <Compile Include="Models\RevenueCollections.cs" />
+    <Compile Include="Models\SpatialNonTransactionScheme.cs" />
+    <Compile Include="Models\SpatialTransactionScheme.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\TelComms.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransactionalSpace.cs" />
+    <Compile Include="Models\TransactionDesciptions.cs" />
+    <Compile Include="Models\UserPositionHeldInOrganogramm.cs" />
+    <Compile Include="Models\Zone.cs" />
+    <Compile Include="PermissionAndAuthorization\Base\ApplicationDbInitializer.cs" />
+    <Compile Include="PermissionAndAuthorization\Base\ApplicationUserClaim.cs" />
+    <Compile Include="PermissionAndAuthorization\Base\ApplicationUserLogin.cs" />
+    <Compile Include="PermissionAndAuthorization\Base\ApplicationUserRole.cs" />
+    <Compile Include="PermissionAndAuthorization\Base\EmailService.cs" />
+    <Compile Include="PermissionAndAuthorization\Base\SmsService.cs" />
+    <Compile Include="PermissionAndAuthorization\Managers\ApplicationGroupManager.cs" />
+    <Compile Include="PermissionAndAuthorization\Managers\ApplicationRoleManager.cs" />
+    <Compile Include="PermissionAndAuthorization\Managers\ApplicationSignInManager.cs" />
+    <Compile Include="PermissionAndAuthorization\Managers\ApplicationUserManager.cs" />
+    <Compile Include="PermissionAndAuthorization\Models\AccountViewModels.cs" />
+    <Compile Include="PermissionAndAuthorization\Models\AdminViewModel.cs" />
+    <Compile Include="PermissionAndAuthorization\Models\ApplicationGroup.cs" />
+    <Compile Include="PermissionAndAuthorization\Models\ApplicationGroupRole.cs" />
+    <Compile Include="PermissionAndAuthorization\Models\ApplicationRole.cs" />
+    <Compile Include="PermissionAndAuthorization\Models\ApplicationUser.cs" />
+    <Compile Include="PermissionAndAuthorization\Models\ApplicationUserGroup.cs" />
+    <Compile Include="PermissionAndAuthorization\Models\ManageViewModels.cs" />
+    <Compile Include="PermissionAndAuthorization\Stores\ApplicationGroupStore.cs" />
+    <Compile Include="PermissionAndAuthorization\Stores\ApplicationRoleStore.cs" />
+    <Compile Include="PermissionAndAuthorization\Stores\ApplicationUserStore.cs" />
+    <Compile Include="PermissionAndAuthorization\Stores\GroupStoreBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\AgentDetail.cs" />
+    <Compile Include="ViewModels\AreaView.cs" />
+    <Compile Include="ViewModels\ClusterView.cs" />
+    <Compile Include="DbViews\Expense.cs" />
+    <Compile Include="DbViews\FundWallet.cs" />
+    <Compile Include="DbViews\LastTransaction.cs" />
+    <Compile Include="ViewModels\FundWallets.cs" />
+    <Compile Include="ViewModels\HistoryView.cs" />
+    <Compile Include="ViewModels\MemberWithAgentRole.cs" />
+    <Compile Include="ViewModels\Organogramm.cs" />
+    <Compile Include="ViewModels\PlatformView.cs" />
+    <Compile Include="ViewModels\RegionView.cs" />
+    <Compile Include="ViewModels\RegisterAndAssignPlatformManagerToNetWork.cs" />
+    <Compile Include="ViewModels\RegisterAndAssignUserToNetWork.cs" />
+    <Compile Include="ViewModels\StateView.cs" />
+    <Compile Include="DbViews\TransactionHistory.cs" />
+    <Compile Include="ViewModels\UserRoleProfile.cs" />
+    <Compile Include="ViewModels\ZoneView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ServiceViews\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Echenim.Nine\Echenim.Nine.csproj">
+      <Project>{a70504cc-415d-4e46-a5d8-63962b58dcc8}</Project>
+      <Name>Echenim.Nine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

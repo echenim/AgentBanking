@@ -1,0 +1,123 @@
+﻿@model IEnumerable<AgentNetworkManager.Domain.DbViews.Organogramm>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+<div class="hundredPercent goMobileHundredPercent floatLeft noPrint">
+    <div class="rowBody rowPadding borderAll Colour-White">
+        <div class="text-Color"><h3>AGENT NETWORK  STRUCTURE</h3></div>
+        <div>This allows you to thoroughly manage  agency structure request(s) . </div>
+    </div>
+</div>
+<div class="hundredPercent goMobileHundredPercent floatLeft noPrint">
+    @using (Html.BeginForm())
+    {
+        <div class="rowBody rowPadding borderAll filterBar Colour-White text-Gray">
+            <span><h3 class="strong">@Model.Count()</h3></span><b>result(s)</b>
+            <div class="divider"></div>
+
+            <span class="noMobile">
+                <b class="strong floatLeft">Search: </b>
+                @Html.TextBox("searchString", null, null, new { @class = "normalHtmlTextField", placeholder = "Type Search Word..." })
+            </span>
+            <span><button class="dropShadow text-White goSearch noMobile" type="submit">GO</button></span>
+
+        </div>
+    }
+
+</div>
+
+<div class="hundredPercent goMobileHundredPercent floatLeft">
+    <ul class="rowBody strips borderAll Colour-White underLine">
+        <li class="clearFix noPrint">
+            @if (User.IsInRole("Administrator"))
+            {
+                @Html.ActionLink("PLATFORM", "Platform")
+
+            }
+            @if (User.IsInRole("Platform Manager"))
+            {
+                @Html.ActionLink("REGION", "Region")@Html.Raw(" | ")
+                @Html.ActionLink("STATE", "State")@Html.Raw(" | ")
+                @Html.ActionLink("AREA", "Area")@Html.Raw(" | ")
+                @Html.ActionLink("ZONE", "Zone")@Html.Raw(" | ")
+
+                 @Html.ActionLink("CLUSTER", "Cluster")
+
+
+            }
+
+            
+           
+        <li class="clearFix text-Black">
+            <div class="table-responsive">
+                <table class="table  table-striped table-condensed">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Agency)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RegionName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StateName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Area)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Zone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Clusta)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Kind)
+                        </th>
+                      
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Agency)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RegionName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StateName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Area)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Zone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Clusta)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Kind)
+                            </td>
+                           
+                        </tr>
+                    }
+
+
+                </table>
+
+            </div>
+        </li>
+
+    </ul>
+    @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+                       new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@
+</div>
+

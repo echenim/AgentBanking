@@ -1,0 +1,165 @@
+﻿@model RetailPlatform.Domain.ModelViews.ZoneView
+
+
+<div class="hundredPercent goMobileHundredPercent floatLeft noPrint">
+    <div class="rowBody rowPadding borderAll Colour-White">
+        <div class="text-Color"><h3>ASSIGN USER TO ZONAL WORK SPACE</h3></div>
+
+    </div>
+</div>
+<div class="hundredPercent goMobileHundredPercent floatLeft">
+    <div class="rowBody rowPadding borderAll Colour-White">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+               
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.region, "Region", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.region, Model.AvailableRegion, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.region, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.state, "State", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.state, Model.AvailableState, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.state, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.area, "Area", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.area, Model.AvailableState, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.area, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Zone, "Zone", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Zone, Model.AvailableZone, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Zone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+               
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+    $(function () {
+
+        $("#region").change(function () {
+            var selectedItem = $(this).val();
+            var ddlStates = $("#state");
+            var statesProgress = $("#loading-progress");
+            statesProgress.show();
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("GetStateByRegionFilter"))",
+                data: { "region": selectedItem },
+                success: function (data) {
+                    ddlStates.html('');
+                    ddlStates.append($('<option></option>').val('').html('Please Select'));
+                    $.each(data, function (id, option) {
+                        ddlStates.append($('<option></option>').val(option.id).html(option.name));
+                    });
+                    statesProgress.hide();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('FAIL TO RETRIVE RECORD.');
+                    statesProgress.hide();
+                }
+            });
+        });
+    });
+    $(function () {
+
+        $("#state").change(function () {
+            var selectedItem = $(this).val();
+            var ddlArea = $("#area");
+            var areaProgress = $("#loading-progress");
+            areaProgress.show();
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("GetAreaByStateFilter"))",
+                data: { "state": selectedItem },
+            success: function (data) {
+                ddlArea.html('');
+                ddlArea.append($('<option></option>').val('').html('Please Select'));
+                $.each(data, function (id, option) {
+                    ddlArea.append($('<option></option>').val(option.id).html(option.name));
+                });
+                areaProgress.hide();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('FAIL TO RETRIVE RECORD.');
+                areaProgress.hide();
+            }
+        });
+    });
+    });
+
+
+
+    $(function () {
+
+        $("#area").change(function () {
+            var selectedItem = $(this).val();
+            var ddlZone = $("#Zone");
+            var zoneProgress = $("#loading-progress");
+            zoneProgress.show();
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("GetZoneByAreaFilter"))",
+                data: { "area": selectedItem },
+            success: function (data) {
+                ddlZone.html('');
+                ddlZone.append($('<option></option>').val('').html('Please Select'));
+                $.each(data, function (id, option) {
+                    ddlZone.append($('<option></option>').val(option.id).html(option.name));
+                });
+                zoneProgress.hide();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('FAIL TO RETRIVE RECORD.');
+                zoneProgress.hide();
+            }
+        });
+    });
+    });
+
+
+</script>
+
+
+

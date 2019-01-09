@@ -1,0 +1,214 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+
+    <title> Miliz </title>
+    <link href="~/Content/cssx/reset.css" rel="stylesheet" />
+    <link href="~/Content/cssx/reporter.css" rel="stylesheet" />
+    <link href="~/Content/cssx/layout.css" rel="stylesheet" />
+    <link href="~/Content/cssx/style.css" rel="stylesheet" />
+    <link href="~/Content/cssx/tablestyle.css" rel="stylesheet" />
+
+    <link href="~/Content/cssx/print.css" rel="stylesheet" media="print" />
+    <script src="~/Scripts/jss/1_jquery-1.js"></script>
+    <script src="~/Scripts/jss/canvas-to-blob.js"></script>
+    <script src="~/Scripts/jss/jquery-ui-1.js"></script>
+    <script src="~/Scripts/jss/jquery.js"></script>
+    <script src="~/Scripts/jss/jquery_002.js"></script>
+    <script src="~/Scripts/jss/jquery_003.js"></script>
+    <script src="~/Scripts/jss/jquery_004.js"></script>
+    <script src="~/Scripts/jss/jquery_005.js"></script>
+    <script src="~/Scripts/jss/jquery_006.js"></script>
+    <script src="~/Scripts/jss/jquery_007.js"></script>
+    <script src="~/Scripts/jss/jquery_008.js"></script>
+    <script src="~/Scripts/jss/jquery_009.js"></script>
+    <script src="~/Scripts/jss/load-image.js"></script>
+
+</head>
+<body>
+    <!-- Wrapper container -->
+    <div id="wrapper" class="Colour-Emerald">
+        <!-- Header Container -->
+        <script type="text/javascript">
+
+            $(document).ready(function (e) {
+                hideAllDropDown();
+            });
+        </script>
+
+        <header id="topBar">
+            <div style="display: block;" id="logo" class="dashboard resizeLogo">
+                @*<img src="~/Avarter/logo/bg_logo.png" />*@
+            </div>
+            @if (Request.IsAuthenticated)
+            {
+                <ul class="topMenu ">
+                    <li class="floatLeft topMenuDropList underLine dashboard viewList" onclick="$('.mainMenuDropDown').slideToggle('fast');">
+                        <img src="~/Avarter/_images/noPhoto.png" class="topProfileImg floatLeft">
+                        <h5 class="floatLeft topProfileName">
+                            @User.Identity.GetUserName()
+                        </h5>
+                        <ul class="borderAll mainMenuDropDown">
+                            <li class="settings">
+                                <a href="@Url.Action("Index", "UsersAdmin")">
+                                    <img src="~/Avarter/_images/settings38.png" class="menuImg"><b>Users</b>
+                                </a>
+                            </li>
+                            <li>
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <a href="javascript:document.getElementById('logoutForm').submit()">
+                                        <img src="~/Avarter/_images/sign4.png" class="menuImg"><b>Sign Out</b>
+                                    </a>
+                                }
+
+
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            }
+            else
+            {
+                <ul class="topMenu spanFull quickStat">
+                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                </ul>
+            }
+
+        </header>
+        <!-- End of Header Container -->
+        <!-- Navigation Container -->
+        <script type="text/javascript">
+            $(document).ready(function (e) {
+                //chatList();
+            });
+        </script>
+
+        <!-- Left Panel Container -->
+        <nav id="menuBar" class="mainMenu Colour-White dashboard noPrint">
+            <ul>
+                
+                <li>
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="~/Avarter/_images/list.png" alt="Dashboard" class="imgBtn dropShadow" title="Dashboard"/>
+                        <b>Transactions</b>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "FundWallet")">
+                        <img src="~/Avarter/_images/list.png" alt="Test" class="imgBtn dropShadow" title="Test"/>
+                        <b>Wallets</b>
+                    </a>
+                    <hr/>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="~/Avarter/_images/settings.png" alt="Test" class="imgBtn dropShadow" title="Test"/>
+                        <strong>
+                            <b>CONFIGURATION</b>
+                        </strong>
+                    </a>
+                </li>
+                @if (User.IsInRole("Administrator"))
+                {
+                    <li>
+                        <a href="@Url.Action("Index", "RolesAdmin")">
+                            <img src="~/Avarter/_images/test.png" alt="Test" class="imgBtn dropShadow" title="Test"/>
+                            <b>Role Management</b>
+                        </a>
+                    </li>
+                }
+                <li>
+                    <a href="@Url.Action("Index", "UserManagement")">
+                        <img src="~/Avarter/_images/people.png" alt="Test" class="imgBtn dropShadow" title="Test"/>
+                        <b>Users Management</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "GroupsAdmin")">
+                        <img src="~/Avarter/_images/test.png" alt="Test" class="imgBtn dropShadow" title="Test"/>
+                        <b>Function Management</b>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "Structure")">
+                        <img src="~/Avarter/_images/test.png" alt="Test" class="imgBtn dropShadow" title="Test"/>
+                        <b>Agent Network Structure</b>
+                    </a>
+                    <hr/>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <img src="~/Avarter/_images/graph.png" alt="Test" class="imgBtn " title="Test"/>
+                        <strong>
+                            <b>REPORTS</b>
+                        </strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("TransactionsDistribution", "SpatialReportHeatMap")">
+                        <img src="~/Avarter/_images/graph.png" alt="Test" class="imgBtn dropShadow" title="Test" />
+                        <strong>
+                            <b>Transaction Distribution</b>
+                        </strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("AgentsDistribution", "SpatialReportHeatMap")">
+                        <img src="~/Avarter/_images/graph.png" alt="Test" class="imgBtn dropShadow" title="Test" />
+                        <strong>
+                            <b>Agents Distribution</b>
+                        </strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ActivityCluster", "SpatialReportHeatMap")">
+                        <img src="~/Avarter/_images/graph.png" alt="Test" class="imgBtn dropShadow" title="Test" />
+                        
+                            <b>Agents Clustering</b>
+                        
+                    </a>
+                </li>
+               
+
+
+
+            </ul>
+           
+
+        </nav>
+        <!-- End of Left Panel Container -->
+        <!-- End of Navigation Container -->
+        <!-- content Wrapper -->
+        <div id="contentWrapper" class="text-Gray">
+            <!-- content Block -->
+            <div id="contentBlock">
+                <div id="contentBody">
+                    @RenderBody()
+                </div>
+            </div>
+            <!-- End content Block -->
+        </div>
+        <!-- End content Wrapper -->
+    </div>
+    <!-- End of wrapper container -->
+    <footer class="clearFix text-White transImageBgBlack">
+        <!--<ul class="searchMenuHideDropDown hideItem hundredPercent">
+            <li><input name="searchString" id="searchString" type="text" class="normalHtmlTextField" value="" placeholder="Type Search Word..."></li>
+        </ul>-->
+        <div class=""><h5>VIZION &copy;@DateTime.Now.Year</h5></div>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

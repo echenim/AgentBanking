@@ -1,0 +1,18 @@
+﻿@model AgentNetworkManager.Domain.ViewModels.HistoryView
+
+@{
+    var sn = 0;
+}
+
+
+
+<div class="hundredPercent goMobileHundredPercent floatLeft noPrint">
+    <div class="rowBody rowPadding borderAll Colour-White">
+        <div class="text-Color">
+            <h3>AGENT TRANSACTION HISTORY</h3>
+        </div>
+      
+    </div>
+</div>
+@Html.Partial("_AgentDetail",Model.Agent)
+@Html.Partial("_TransactionHistories",Model.TransactionHistoryList);
